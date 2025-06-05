@@ -1,0 +1,37 @@
+<section class="hero-genero" *ngIf="filmeHero">
+  <div class="hero-content">
+    <span class="new-release">New Release</span>
+    <h1 class="title">{{ filmeHero.title }}</h1>
+    <p class="description">
+      {{ filmeHero.overview || 'Lorem ipsum dolor sit amet consectetur. Sed netus tortor hendrerit massa sem nunc nam
+      odio. Orci posuere id donec.' }}
+    </p>
+
+    <div class="hero-buttons">
+      <button class="play-btn">
+        <i class="material-icons">play_arrow</i> Play Now
+      </button>
+      <button class="info-btn" [routerLink]="['/filme', filmeHero.id]">
+        <i class="material-icons">info</i> More Info
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-background">
+    <img [src]="'https://image.tmdb.org/t/p/original' + filmeHero.backdrop_path" alt="{{ filmeHero.title }}" />
+  </div>
+</section>
+
+<section class="filmes-genero">
+  <div class="search-container">
+    <input type="text" placeholder="Buscar filme..." [(ngModel)]="termoBusca" class="search-input" />
+  </div>
+  <div class="filmes-grid">
+    <mat-card *ngFor="let filme of filmesFiltrados" class="anime-card">
+      <a [routerLink]="['/filme', filme.id]">
+        <img mat-card-image [src]="'https://image.tmdb.org/t/p/w500' + filme.poster_path" alt="{{ filme.title }}" />
+        <mat-card-title>{{ filme.title }}</mat-card-title>
+      </a>
+    </mat-card>
+  </div>
+</section>

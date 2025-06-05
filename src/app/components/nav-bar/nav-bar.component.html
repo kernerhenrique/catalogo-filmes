@@ -1,0 +1,25 @@
+<nav class="navbar">
+    <div class="navbar-container">
+        <!-- LOGO -->
+        <div>
+            <!-- <p class="logo">CATÁLOGO FILMES</p> -->
+            <a href=""><img src="images/logo.png" width="100" alt=""></a>
+        </div>
+        <!-- MENU -->
+        <div class="menu">
+            <ul class="menu-itens">
+                <li><a href="">Home</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-link">Categorias ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a [routerLink]="['/genero', 12]" class="dropdown-item">Aventura</a></li>
+                        <li><a [routerLink]="['/genero', 28]" class="dropdown-item">Ação</a></li>
+                        <li><a [routerLink]="['/genero', 35]" class="dropdown-item">Comédia</a></li>
+                        <li><a [routerLink]="['/genero', 27]" class="dropdown-item">Terror</a></li>
+                        <li><a [routerLink]="['/genero', 53]" class="dropdown-item">Suspense</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

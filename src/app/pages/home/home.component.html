@@ -1,0 +1,38 @@
+<section class="hero" *ngIf="filmeAleatorio">
+  <div class="hero-content">
+    <span class="new-release">Lançamento</span>
+    <h1 class="title">{{ filmeAleatorio.title }}</h1>
+    <p class="description">{{ filmeAleatorio.overview }}</p>
+
+    <div class="hero-buttons">
+      <button class="play-btn">
+        <i class="material-icons">play_arrow</i> Assistir
+      </button>
+      <button class="info-btn">
+        <i class="material-icons">info</i> Mais sobre
+      </button>
+    </div>
+  </div>
+
+  <div class="hero-background">
+    <img [src]="'https://image.tmdb.org/t/p/original' + filmeAleatorio.backdrop_path" alt="Hero Background" />
+  </div>
+</section>
+
+<section class="home">
+  <div *ngFor="let genero of generoNomes | keyvalue" class="genero-bloco">
+    <div class="genero-container">
+      <h2 class="section-title">{{ genero.value }}</h2>
+      <div class="cards-row">
+        <mat-card *ngFor="let filme of filmesPorGeneroSeparado[genero.value]" class="anime-card">
+          <a [routerLink]="['/filme', filme.id]" style="text-decoration: none;">
+            <img mat-card-image
+                 [src]="filme.poster_path ? 'https://image.tmdb.org/t/p/w500' + filme.poster_path : 'assets/no-image.png'"
+                 alt="{{ filme.title }}" />
+            <mat-card-title>{{ filme.title }}</mat-card-title>
+          </a>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
