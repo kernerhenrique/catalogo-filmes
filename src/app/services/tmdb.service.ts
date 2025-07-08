@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class TmdbService {
 
-  private apiKey = '8885ff1d36c9c9ac38d708c7bb0aa30d'; // ⚠️ Substitua pela sua chave real
+  private apiKey = '8885ff1d36c9c9ac38d708c7bb0aa30d';
   private apiUrl = 'https://api.themoviedb.org/3';
   private urlAleatorio = 'https://api.themoviedb.org/3/trending/movie/week?api_key=8885ff1d36c9c9ac38d708c7bb0aa30d'
 
@@ -36,6 +36,6 @@ export class TmdbService {
   }
 
   getFilmesPorGenero(generoId: number): Observable<any> {
-  return this.http.get(`${this.apiUrl}/discover/movie?with_genres=${generoId}&api_key=${this.apiKey}&language=pt-BR`);
-}
+    return this.http.get(`${this.apiUrl}/discover/movie?with_genres=${generoId}&api_key=${this.apiKey}&language=pt-BR`);
+  }
 }

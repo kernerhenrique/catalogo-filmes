@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { TmdbService } from '../../services/tmdb.service';
 import { RouterModule } from '@angular/router';
+import { CardFilmeComponent } from '../../components/card-filme/card-filme.component';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     MatCardModule,
-    RouterModule
+    RouterModule,
+    CardFilmeComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

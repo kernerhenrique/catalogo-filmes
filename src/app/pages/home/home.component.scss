@@ -84,7 +84,7 @@
 }
 
 .home {
-  background-color: #500208;
+  background-color: #121212;
   padding: 40px;
 
   .section-title {
@@ -105,54 +105,6 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 10px;
-  }
-
-  .anime-card {
-    flex: 0 0 220px;
-    height: 330px;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    img {
-      height: 70%;
-      width: 100%;
-      object-fit: fill;
-    }
-
-    mat-card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 8px 12px;
-      height: 40px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      color: #ffffff;
-    }
-
-    mat-card-content {
-      padding: 0 12px 12px;
-
-      p {
-        font-size: 0.8rem;
-        color: #ccc;
-        max-height: 2.4em;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-      }
-    }
   }
 }
 
@@ -229,22 +181,6 @@
       align-items: center;
       gap: 16px;
     }
-
-    .anime-card {
-      width: 90%;
-      max-width: 280px;
-      height: auto;
-
-      img {
-        height: auto;
-        aspect-ratio: 2 / 3;
-      }
-
-      mat-card-title {
-        height: auto;
-        white-space: normal;
-      }
-    }
   }
 }
 
@@ -278,10 +214,6 @@
   .home {
     .section-title {
       font-size: 1.3rem;
-    }
-
-    .anime-card {
-      max-width: 240px;
     }
   }
 }

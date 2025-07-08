@@ -1,0 +1,61 @@
+<section class="favoritos-container">
+    <h1 class="page-title">Filmes Favoritos</h1>
+
+    <form [formGroup]="form" (ngSubmit)="salvar()" novalidate autocomplete="off">
+        <div class="form-group autocomplete">
+            <label for="titulo">Título do filme</label>
+            <input id="titulo" type="text" formControlName="titulo" (blur)="ocultarSugestoesComDelay()" />
+            <ul *ngIf="sugestoes.length > 0" class="dropdown">
+                <li *ngFor="let s of sugestoes" (click)="selecionarFilme(s)">
+                    {{ s.title }}
+                </li>
+            </ul>
+            <div class="erro" *ngIf="form.controls['titulo'].invalid && form.controls['titulo'].touched">
+                O título é obrigatório.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="nota">Nota (1 a 10)</label>
+            <input id="nota" type="number" formControlName="nota" min="1" max="10" />
+            <div class="erro" *ngIf="form.controls['nota'].hasError('min')">
+                Nota mínima é 1.
+            </div>
+            <div class="erro" *ngIf="form.controls['nota'].hasError('max')">
+                Nota máxima é 10.
+            </div>
+            <div class="erro" *ngIf="form.controls['nota'].invalid && form.controls['nota'].touched">
+                A nota é obrigatória.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comentario">Comentário</label>
+            <textarea id="comentario" formControlName="comentario"></textarea>
+        </div>
+
+        <button type="submit" [disabled]="form.invalid">Salvar</button>
+    </form>
+
+    <div class="cards-lista">
+        <h2>Lista:</h2>
+
+        <div *ngIf="filmesSalvos.length > 0; else nenhumFilme">
+            <div class="cards-grid">
+                <div class="card" *ngFor="let filme of filmesSalvos">
+                    <h3>{{ filme.titulo }}</h3>
+                    <p><strong>Nota:</strong> {{ filme.nota }}</p>
+                    <p *ngIf="filme.comentario">
+                        <strong>Comentário:</strong><br />
+                        {{ filme.comentario }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #nenhumFilme>
+            <p class="mensagem-vazia">Nenhum filme favoritado.</p>
+        </ng-template>
+    </div>
+
+</section>

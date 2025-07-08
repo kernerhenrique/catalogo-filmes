@@ -1,0 +1,8 @@
+<mat-card class="anime-card">
+    <a [routerLink]="['/filme', filme?.id]" style="text-decoration: none;">
+        <img mat-card-image
+            [src]="filme?.poster_path ? 'https://image.tmdb.org/t/p/w500' + filme.poster_path : 'assets/no-image.png'"
+            alt="{{ filme?.title }}" />
+        <mat-card-title>{{ filme?.title }}</mat-card-title>
+    </a>
+</mat-card>
